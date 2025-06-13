@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Boston House Price Predictor</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;hdwallpapers
+      background: url('https://www.google.com/imgres?q=baston%20house&imgurl=https%3A%2F%2Fbastonschool.com%2Fwpimages%2Fwp242e8747_14.jpg&imgrefurl=https%3A%2F%2Fbastonschool.com%2F&docid=nYetWE8poz7dyM&tbnid=hiRtbo94mZL8oM&vet=12ahUKEwjf0pmf3-6NAxWinGMGHfoQMuIQM3oECBkQAA..i&w=348&h=233&hcb=2&ved=2ahUKEwjf0pmf3-6NAxWinGMGHfoQMuIQM3oECBkQAA') no-repeat center center fixed;
+      background-size: cover;
+    }
+
+    .overlay {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 30px;
+    }
+
+    .container {
+      backdrop-filter: blur(2px);
+      background: rgba(255, 255, 255, 0.1);
+      color: #00ffff;
+      padding: 30px;
+      border-radius: 20px;
+      max-width: 700px;
+      width: 100%;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 32px;
+      margin-bottom: 20px;
+      color: #00ffff;
+      text-shadow: 0 0 5px #000;
+    }
+
+    form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+
+    label {
+        color: #00BFFF;
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    input[type="text"] {
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #fff;
+      font-size: 14px;
+      background: transparent;
+      color: #ffd500;
+    }
+
+    input[type="submit"] {
+      grid-column: span 2;
+      padding: 12px;
+      background: #ff416c;
+      color: #00af11;
+      font-size: 16px;
+      font-weight: bold;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    input[type="submit"]:hover {
+      background: #ff4b2b;
+    }
+
+    #spinner {
+      display: none;
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    @media (max-width: 600px) {
+      form {
+        grid-template-columns: 1fr;
+      }
+
+      input[type="submit"] {
+        grid-column: span 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay">
+    <div class="container">
+      <h1>Boston House Price Predictor 🏙️</h1>
+
+      <form action="/predict" method="POST" onsubmit="showSpinner()">
+        <label>CRIM</label><input type="text" name="CRIM" required>
+        <label>ZN</label><input type="text" name="ZN" required>
+        <label>INDUS</label><input type="text" name="INDUS" required>
+        <label>CHAS</label><input type="text" name="CHAS" required>
+        <label>NOX</label><input type="text" name="NOX" required>
+        <label>RM</label><input type="text" name="RM" required>
+        <label>AGE</label><input type="text" name="AGE" required>
+        <label>DIS</label><input type="text" name="DIS" required>
+        <label>RAD</label><input type="text" name="RAD" required>
+        <label>TAX</label><input type="text" name="TAX" required>
+        <label>PTRATIO</label><input type="text" name="PTRATIO" required>
+        <label>B</label><input type="text" name="B" required>
+        <label>LSTAT</label><input type="text" name="LSTAT" required>
+
+        <input type="submit" value="🚀 Predict Price">
+      </form>
+
+      <div id="spinner">
+        <img src="https://i.gifer.com/ZZ5H.gif" alt="Loading..." width="80" />
+        <p>Calculating prediction...</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function showSpinner() {
+      document.getElementById('spinner').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
